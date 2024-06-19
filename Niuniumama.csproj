@@ -51,6 +51,9 @@
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </ApplicationDefinition>
+        <Page Include="BranchDynamicsPage.xaml" />
+        <Page Include="ForwardWithDisciplinePage.xaml" />
+        <Page Include="LearningAreaPage.xaml" />
         <Page Include="MainWindow.xaml">
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
@@ -59,12 +62,29 @@
             <DependentUpon>App.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Compile Include="BranchDynamicsPage.xaml.cs">
+          <DependentUpon>BranchDynamicsPage.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="ForwardWithDisciplinePage.xaml.cs">
+          <DependentUpon>ForwardWithDisciplinePage.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="LearningAreaPage.xaml.cs">
+          <DependentUpon>LearningAreaPage.xaml</DependentUpon>
+        </Compile>
         <Compile Include="MainWindow.xaml.cs">
             <DependentUpon>MainWindow.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Page Include="PartyDisciplinePage.xaml" />
+        <Page Include="PartyMemberStylePage.xaml" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="PartyDisciplinePage.xaml.cs">
+          <DependentUpon>PartyDisciplinePage.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="PartyMemberStylePage.xaml.cs">
+          <DependentUpon>PartyMemberStylePage.xaml</DependentUpon>
+        </Compile>
         <Compile Include="Properties\AssemblyInfo.cs">
             <SubType>Code</SubType>
         </Compile>
