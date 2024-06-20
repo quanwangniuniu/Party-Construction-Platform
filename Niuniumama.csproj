@@ -105,5 +105,12 @@
     <ItemGroup>
         <None Include="App.config"/>
     </ItemGroup>
+    <ItemGroup>
+      <Resource Include="Static\Images\loading_logo.png" />
+      <Resource Include="Static\Images\loading_picture.png" />
+    </ItemGroup>
+    <ItemGroup>
+      <Resource Include="Static\Icons\running_icon.png" />
+    </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets"/>
 </Project>
