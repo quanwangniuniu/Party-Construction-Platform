@@ -51,6 +51,9 @@
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </ApplicationDefinition>
+        <Compile Include="SplashScreen.xaml.cs">
+          <DependentUpon>SplashScreen.xaml</DependentUpon>
+        </Compile>
         <Page Include="BranchDynamicsPage.xaml" />
         <Page Include="ForwardWithDisciplinePage.xaml" />
         <Page Include="LearningAreaPage.xaml" />
@@ -77,6 +80,7 @@
         </Compile>
         <Page Include="PartyDisciplinePage.xaml" />
         <Page Include="PartyMemberStylePage.xaml" />
+        <Page Include="SplashScreen.xaml" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="PartyDisciplinePage.xaml.cs">
