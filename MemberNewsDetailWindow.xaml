@@ -1,0 +1,27 @@
+﻿<Window x:Class="Niuniumama.MemberNewsDetailWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:local="clr-namespace:Niuniumama"
+        mc:Ignorable="d"
+        Height="450" Width="800"
+        WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <!-- 定义一些样式资源，以便在整个窗口中重复使用 -->
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="FontSize" Value="14"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property=" HorizontalAlignment" Value="Stretch"/>
+        </Style>
+    </Window.Resources>
+    <StackPanel Margin="10">
+        <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Title}" Height="24"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding PublishDate, StringFormat='yyyy-MM-dd'}" Height="24"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Source}" Height="24"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Content}" Height="100" TextWrapping="Wrap"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Editor}" Height="24"/>
+        <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Reviewer}" Height="24"/>
+    </StackPanel>
+</Window>

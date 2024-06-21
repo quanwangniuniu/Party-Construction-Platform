@@ -51,6 +51,11 @@
             <Generator>MSBuild:Compile</Generator>
             <SubType>Designer</SubType>
         </ApplicationDefinition>
+        <Compile Include="MemberNewsDetailWindow.xaml.cs">
+          <DependentUpon>MemberNewsDetailWindow.xaml</DependentUpon>
+        </Compile>
+        <Compile Include="Models\LearningNews.cs" />
+        <Compile Include="Models\MemberNews.cs" />
         <Compile Include="SplashScreen.xaml.cs">
           <DependentUpon>SplashScreen.xaml</DependentUpon>
         </Compile>
@@ -78,6 +83,7 @@
             <DependentUpon>MainWindow.xaml</DependentUpon>
             <SubType>Code</SubType>
         </Compile>
+        <Page Include="MemberNewsDetailWindow.xaml" />
         <Page Include="PartyDisciplinePage.xaml" />
         <Page Include="PartyMemberStylePage.xaml" />
         <Page Include="SplashScreen.xaml" />
@@ -103,7 +109,7 @@
         </EmbeddedResource>
     </ItemGroup>
     <ItemGroup>
-        <None Include="App.config"/>
+        <None Include="App.config" />
     </ItemGroup>
     <ItemGroup>
       <Resource Include="Static\Images\loading_logo.png" />

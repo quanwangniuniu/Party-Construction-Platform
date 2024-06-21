@@ -6,9 +6,15 @@
       mc:Ignorable="d"
       Title="党员风采" Height="450" Width="800">
     <Grid>
-        <TextBlock Text="党员风采栏目，展示优秀党员的风采和事迹。" 
-                   FontSize="18" 
-                   Margin="10"/>
+        <ListBox x:Name="MemberNewsListBox" ItemsSource="{Binding PageData}" DisplayMemberPath="Title" MouseDoubleClick="MemberNewsListBox_MouseDoubleClick"/>
+        <!-- <ListBox x:Name="NewsListBox" ItemsSource="{Binding PageData}" DisplayMemberPath="Title" MouseDoubleClick="NewsListBox_MouseDoubleClick"/> -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+            <Button x:Name="FirstPageButton" Content="首页" Click="FirstPageButton_Click"/>
+            <Button x:Name="PreviousPageButton" Content="上一页" Click="PreviousPageButton_Click"/>
+            <TextBox x:Name="PageNumberTextBox" Width="50" Text="{Binding CurrentPage, Mode=TwoWay}"/>
+            <Button x:Name="NextPageButton" Content="下一页" Click="NextPageButton_Click"/>
+            <Button x:Name="LastPageButton" Content="末页" Click="LastPageButton_Click"/>
+        </StackPanel>
     </Grid>
 </Page>
 
