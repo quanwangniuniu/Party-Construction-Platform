@@ -17,7 +17,7 @@ namespace Niuniumama
         public int PageSize { get; set; } = 20;
         public int TotalPages { get; set; }
         
-        public ObservableCollection<MemberNews> MemberNewsList { get; set; } = new ObservableCollection<MemberNews>();
+        // public ObservableCollection<MemberNews> MemberNewsList { get; set; } = new ObservableCollection<MemberNews>();
 
         public PartyMemberStylePage()
         {
@@ -104,10 +104,10 @@ namespace Niuniumama
 
                 newsList.Add(new MemberNews
                 {
-                    Title = $"新闻标题{i}",
+                    Title = $"党员风采展示标题{i}",
                     PublishDate = new DateTime(year, month, day),
                     Source = $"来源{i}",
-                    Content = $"这里是新闻的具体内容{i}...",
+                    Content = $"这里是党员风采展示的具体内容{i}...",
                     Editor = $"编辑人{i}",
                     Reviewer = $"核审人{i}"
                 });
