@@ -26,7 +26,6 @@ namespace Niuniumama
             // 使用数据库前，模拟添加数据
             NewsList = new ObservableCollection<MemberNews>(GetMockNewsData());
             TotalPages = (int)Math.Ceiling(NewsList.Count / (double)PageSize);
-            Console.Write("总页数:"+TotalPages);
             LoadPageData();
             this.DataContext = this;
         }
