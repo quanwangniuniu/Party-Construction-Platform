@@ -5,23 +5,62 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:local="clr-namespace:Niuniumama"
         mc:Ignorable="d"
-        Height="450" Width="800"
-        WindowStartupLocation="CenterScreen">
+        Height="800" Width="1200"
+        Icon="./Static/Icons/running_icon.png"
+        WindowStartupLocation="CenterScreen"
+        Title="News Detail"
+        ResizeMode="NoResize">
     <Window.Resources>
-        <!-- 定义一些样式资源，以便在整个窗口中重复使用 -->
-        <Style x:Key="TextBoxStyle" TargetType="TextBox">
-            <Setter Property="Margin" Value="5"/>
-            <Setter Property="FontSize" Value="14"/>
+        <Style x:Key="LabelStyle" TargetType="Label">
+            <Setter Property="Margin" Value="10,10,5,5"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
             <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property=" HorizontalAlignment" Value="Stretch"/>
+        </Style>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Margin" Value="5,10,10,10"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="HorizontalAlignment" Value="Stretch"/>
+            <Setter Property="IsReadOnly" Value="True"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="Wheat"/>
+            <Setter Property="BorderThickness" Value="0.05"/>
+        </Style>
+        <Style x:Key="ContentTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource TextBoxStyle}">
+            <Setter Property="TextWrapping" Value="Wrap"/>
+            <Setter Property="AcceptsReturn" Value="True"/>
+            <Setter Property="VerticalScrollBarVisibility" Value="Auto"/>
+            <Setter Property="Height" Value="Auto"/>
+            <Setter Property="MinHeight" Value="500"/>
         </Style>
     </Window.Resources>
-    <StackPanel Margin="10">
-        <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Title}" Height="24"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding PublishDate, StringFormat='yyyy-MM-dd'}" Height="24"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Source}" Height="24"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Content}" Height="100" TextWrapping="Wrap"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Editor}" Height="24"/>
-        <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Reviewer}" Height="24"/>
-    </StackPanel>
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Label Grid.Row="0" Grid.Column="0" Style="{StaticResource LabelStyle}">标题:</Label>
+        <TextBox Grid.Row="0" Grid.Column="1" Style="{StaticResource TextBoxStyle}" Text="{Binding Title}"/>
+        <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource LabelStyle}">发布日期:</Label>
+        <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStyle}" Text="{Binding PublishDate, StringFormat='yyyy-MM-dd'}"/>
+        <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource LabelStyle}"></Label>
+        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource ContentTextBoxStyle}" Text="{Binding Content}"/>
+        <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Label Style="{StaticResource LabelStyle}">编辑:</Label>
+            <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Editor}" Margin="5,10,20,10"/>
+            <Label Style="{StaticResource LabelStyle}">审核:</Label>
+            <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Reviewer}" Margin="5,10,0,10"/>
+        </StackPanel>
+        <Label Grid.Row="4" Grid.Column="0" Style="{StaticResource LabelStyle}">来源:</Label>
+        <TextBox Grid.Row="4" Grid.Column="1" Style="{StaticResource TextBoxStyle}" Text="{Binding Source}"/>
+    </Grid>
 </Window>

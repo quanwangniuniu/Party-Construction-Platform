@@ -4,20 +4,45 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
-        TextElement.FontSize="13"
+        TextElement.FontSize="16"
         TextOptions.TextFormattingMode="Ideal"
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Icon="./Static/Icons/running_icon.png"
-        Title="党建馆" Height="850" Width="1500">
+        Title="党建馆" Height="900" Width="1600">
     <Grid>
         <Frame Name="MainFrame" NavigationUIVisibility="Hidden"/>
-        <StackPanel Orientation="Vertical" Width="200" HorizontalAlignment="Left">
-            <Button Content="学习园地" Click="NavigateToLearningArea"/>
-            <Button Content="党纪法规" Click="NavigateToPartyDiscipline"/>
-            <Button Content="支部动态" Click="NavigateToBranchDynamics"/>
-            <Button Content="知纪前行" Click="NavigateToForwardWithDiscipline"/>
-            <Button Content="党员风采" Click="NavigateToPartyMemberStyle"/>
+        <StackPanel Orientation="Vertical" Width="250" HorizontalAlignment="Left" Margin="20,20,0,20">
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" Click="NavigateToPartyMemberStyle" Height="60" Margin="0,10,0,10">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Style" VerticalAlignment="Center" Margin="0,0,16,0" FontSize="24" />
+                    <TextBlock>党员风采</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" Click="NavigateToForwardWithDiscipline" Height="60" Margin="0,10,0,10">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Forward" VerticalAlignment="Center" Margin="0,0,16,0" FontSize="24" />
+                    <TextBlock>知纪前行</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" Click="NavigateToBranchDynamics" Height="60" Margin="0,10,0,10">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Newspaper" VerticalAlignment="Center" Margin="0,0,16,0" FontSize="24" />
+                    <TextBlock>支部动态</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" Click="NavigateToPartyDiscipline" Height="60" Margin="0,10,0,10">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Judaism" VerticalAlignment="Center" Margin="0,0,16,0" FontSize="24" />
+                    <TextBlock>党纪法规</TextBlock>
+                </StackPanel>
+            </Button>
+            <Button Style="{StaticResource MaterialDesignRaisedButton}" Click="NavigateToLearningArea" Height="60" Margin="0,10,0,10">
+                <StackPanel Orientation="Horizontal">
+                    <materialDesign:PackIcon Kind="Learn" VerticalAlignment="Center" Margin="0,0,16,0" FontSize="24" />
+                    <TextBlock>学习园地</TextBlock>
+                </StackPanel>
+            </Button>
         </StackPanel>
     </Grid>
 </Window>

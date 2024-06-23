@@ -6,15 +6,40 @@
       mc:Ignorable="d"
       Title="党员风采" Height="450" Width="800">
     <Grid>
-        <ListBox x:Name="MemberNewsListBox" ItemsSource="{Binding PageData}" DisplayMemberPath="Title" MouseDoubleClick="MemberNewsListBox_MouseDoubleClick"/>
-        <!-- <ListBox x:Name="NewsListBox" ItemsSource="{Binding PageData}" DisplayMemberPath="Title" MouseDoubleClick="NewsListBox_MouseDoubleClick"/> -->
-        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom">
-            <Button x:Name="FirstPageButton" Content="首页" Click="FirstPageButton_Click"/>
-            <Button x:Name="PreviousPageButton" Content="上一页" Click="PreviousPageButton_Click"/>
-            <TextBox x:Name="PageNumberTextBox" Width="50" Text="{Binding CurrentPage, Mode=TwoWay}"/>
-            <Button x:Name="NextPageButton" Content="下一页" Click="NextPageButton_Click"/>
-            <Button x:Name="LastPageButton" Content="末页" Click="LastPageButton_Click"/>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        
+        <ListBox x:Name="MemberNewsListBox" ItemsSource="{Binding PageData}" DisplayMemberPath="Title" MouseDoubleClick="MemberNewsListBox_MouseDoubleClick" Margin="20" FontSize="16" BorderThickness="1" BorderBrush="#FFCCCCCC" Background="#FFF5F5F5">
+            <ListBox.ItemContainerStyle>
+                <Style TargetType="ListBoxItem">
+                    <Setter Property="Padding" Value="10"/>
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="ListBoxItem">
+                                <Border Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}">
+                                    <ContentPresenter />
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FFE5E5E5"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </ListBox.ItemContainerStyle>
+        </ListBox>
+        
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Margin="20">
+            <Button x:Name="FirstPageButton" Content="首页" Click="FirstPageButton_Click" Margin="5" Style="{StaticResource MaterialDesignRaisedButton}"/>
+            <Button x:Name="PreviousPageButton" Content="上一页" Click="PreviousPageButton_Click" Margin="5" Style="{StaticResource MaterialDesignRaisedButton}"/>
+            <TextBox x:Name="PageNumberTextBox" Width="50" Text="{Binding CurrentPage, Mode=TwoWay}" Margin="5" VerticalAlignment="Center"/>
+            <Button x:Name="NextPageButton" Content="下一页" Click="NextPageButton_Click" Margin="5" Style="{StaticResource MaterialDesignRaisedButton}"/>
+            <Button x:Name="LastPageButton" Content="末页" Click="LastPageButton_Click" Margin="5" Style="{StaticResource MaterialDesignRaisedButton}"/>
         </StackPanel>
     </Grid>
 </Page>
-

@@ -5,6 +5,7 @@
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         AllowsTransparency="True"
+        Icon="./Static/Icons/running_icon.png"
         Background="Transparent">
     <Grid VerticalAlignment="Center" HorizontalAlignment="Center">
         <!-- 背景图片 -->
