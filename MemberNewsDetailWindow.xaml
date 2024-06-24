@@ -3,12 +3,19 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+        TextElement.FontWeight="Regular"
+        TextElement.FontSize="16"
+        TextOptions.TextFormattingMode="Ideal"
+        TextOptions.TextRenderingMode="Auto"
+        FontFamily="{DynamicResource MaterialDesignFont}"
         xmlns:local="clr-namespace:Niuniumama"
         mc:Ignorable="d"
-        Height="800" Width="1200"
+        Height="900" Width="1200"
         Icon="./Static/Icons/running_icon.png"
         WindowStartupLocation="CenterScreen"
-        Title="News Detail"
+        Title="党员风采详情"
         ResizeMode="NoResize">
     <Window.Resources>
         <Style x:Key="LabelStyle" TargetType="Label">
@@ -40,7 +47,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition MinHeight="500" Height="*"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
@@ -53,7 +60,12 @@
         <Label Grid.Row="1" Grid.Column="0" Style="{StaticResource LabelStyle}">发布日期:</Label>
         <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource TextBoxStyle}" Text="{Binding PublishDate, StringFormat='yyyy-MM-dd'}"/>
         <Label Grid.Row="2" Grid.Column="0" Style="{StaticResource LabelStyle}"></Label>
-        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource ContentTextBoxStyle}" Text="{Binding Content}"/>
+        <ScrollViewer Grid.Row="2" Grid.Column="1" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+            <StackPanel>
+                <TextBox Style="{StaticResource ContentTextBoxStyle}" Text="{Binding Content}"/>
+                <Image Source="./Static/Images/loading_logo.png" Stretch="Uniform" Margin="10"/>
+            </StackPanel>
+        </ScrollViewer>
         <StackPanel Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Right">
             <Label Style="{StaticResource LabelStyle}">编辑:</Label>
             <TextBox Style="{StaticResource TextBoxStyle}" Text="{Binding Editor}" Margin="5,10,20,10"/>

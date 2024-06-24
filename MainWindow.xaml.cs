@@ -2,6 +2,8 @@
 using System.Windows;
 using System.Windows.Media.Animation;
 using System.Windows.Navigation;
+using MySql.Data.MySqlClient;
+using Niuniumama.DB;
 
 namespace Niuniumama
 {
@@ -49,5 +51,36 @@ namespace Niuniumama
         {
             MainFrame.Navigate(new PartyMemberStylePage());
         }
+        
+        // private void ConnectButton_Click(object sender, RoutedEventArgs e)
+        // {
+        //     string connectionString = "server=localhost;user=root;database=niuniumama_db;port=3306;password=1111";
+        //     MySqlConnection connection = new MySqlConnection(connectionString);
+        //
+        //     try
+        //     {
+        //         connection.Open();
+        //         resultTextBox.Text = "Connection successful!";
+        //         
+        //         // Execute a simple query
+        //         string query = "SELECT * FROM member_news";
+        //         MySqlCommand cmd = new MySqlCommand(query, connection);
+        //         MySqlDataReader reader = cmd.ExecuteReader();
+        //
+        //         while (reader.Read())
+        //         {
+        //             resultTextBox.Text += "\n" + reader[0].ToString();
+        //         }
+        //         reader.Close();
+        //     }
+        //     catch (Exception ex)
+        //     {
+        //         resultTextBox.Text = $"Error: {ex.Message}";
+        //     }
+        //     finally
+        //     {
+        //         connection.Close();
+        //     }
+        // }
     }
 }

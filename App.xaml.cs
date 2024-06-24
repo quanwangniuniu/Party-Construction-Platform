@@ -1,6 +1,8 @@
 ﻿using System.Windows;
 using System.Threading.Tasks;
 using System;
+using Microsoft.Extensions.DependencyInjection;
+using Niuniumama.DB;
 
 namespace Niuniumama
 {
@@ -9,8 +11,35 @@ namespace Niuniumama
     /// </summary>
     public partial class App:Application
     {
+        public static IServiceProvider ServiceProvider { get; private set; }
+
+        // protected override void OnStartup(StartupEventArgs e)
+        // {
+        //     base.OnStartup(e);
+        //     ServiceProvider = Niuniumama.DB.ServiceProvider.ConfigureServices();
+        //
+        //     var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
+        //     mainWindow.Show();
+        // }
+
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
+            // 配置服务
+            ServiceProvider = DB.ServiceProviderConfig.ConfigureServices();
+            // 获取数据库服务
+            var databaseService = ServiceProvider.GetRequiredService<MySqlDatabase>();
+            
+            // 测试数据库连接
+            bool isConnected = await TestDatabaseConnectionAsync(databaseService);
+            if (isConnected)
+            {
+                Console.WriteLine("连接数据库成功");
+            }
+            else
+            {
+                Console.WriteLine("连接数据库失败");
+            }
+            
             // 创建并显示启动窗口
             SplashScreen splashScreen = new SplashScreen();
             splashScreen.Show();
@@ -32,6 +61,24 @@ namespace Niuniumama
             
             // 关闭启动窗口
             splashScreen.Close();
+        }
+        
+        private async Task<bool> TestDatabaseConnectionAsync(MySqlDatabase database)
+        {
+            try
+            {
+                await database.OpenConnectionAsync();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"数据库连接失败: {ex.Message}");
+                return false;
+            }
+            finally
+            {
+                await database.CloseConnectionAsync();
+            }
         }
     }
 }
