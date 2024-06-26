@@ -6,6 +6,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using System.Windows.Controls;
+using MySql.Data.MySqlClient;
 using Niuniumama.Models;
 
 namespace Niuniumama
@@ -23,8 +24,7 @@ namespace Niuniumama
         {
             InitializeComponent();
             // 添加党员风采数据
-            // 使用数据库前，模拟添加数据
-            NewsList = new ObservableCollection<MemberNews>(GetMockNewsData());
+            NewsList = new ObservableCollection<MemberNews>(GetMemberNewsFromDatabase());
             TotalPages = (int)Math.Ceiling(NewsList.Count / (double)PageSize);
             LoadPageData();
             this.DataContext = this;
@@ -79,10 +79,10 @@ namespace Niuniumama
             LoadPageData();
         }
 
-        // Mock数据方法，需要替换为实际的数据获取逻辑
+        // Mock数据方法，开发过后替换为实际的数据获取逻辑
         private IEnumerable<MemberNews> GetMockNewsData()
         {
-            // 模拟数据生成逻辑，返回一个包含新闻数据的列表
+            // 模拟数据生成逻辑，返回一个包含党员风采数据的列表
             var newsList = new ObservableCollection<MemberNews>();
             int day = 1;
             int month = 1;
@@ -115,6 +115,48 @@ namespace Niuniumama
                 day++;
             }
 
+            return newsList;
+        }
+
+        private IEnumerable<MemberNews> GetMemberNewsFromDatabase()
+        {
+            string connectionString = "server=localhost;user=root;database=niuniumama_db;port=3306;password=1111";
+            var newsList = new ObservableCollection<MemberNews>();
+            
+            // 连接数据库
+            using (MySqlConnection conn = new MySqlConnection(connectionString))
+            {
+                try
+                {
+                    conn.Open();
+                    string sql = "SELECT * FROM Member_News";
+
+                    using (MySqlCommand cmd = new MySqlCommand(sql, conn))
+                    {
+                        using (MySqlDataReader reader = cmd.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                newsList.Add(new MemberNews
+                                    {
+                                        Title = reader.GetString("Title"),
+                                        PublishDate = reader.GetDateTime("Publish_Date"),
+                                        Source = reader.GetString("Source"),
+                                        Content = reader.GetString("Content"),
+                                        Editor = reader.GetString("Editor"),
+                                        Reviewer = reader.GetString("Reviewer")
+                                    });
+                            }
+                        }
+                    }
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e);
+                    throw;
+                }
+            }
+            
             return newsList;
         }
 

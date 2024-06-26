@@ -37,7 +37,7 @@
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="1" Margin="20">
             <Button x:Name="FirstPageButton" Content="首页" Click="FirstPageButton_Click" Margin="5" Style="{StaticResource MaterialDesignRaisedButton}"/>
             <Button x:Name="PreviousPageButton" Content="上一页" Click="PreviousPageButton_Click" Margin="5" Style="{StaticResource MaterialDesignRaisedButton}"/>
-            <TextBox x:Name="PageNumberTextBox" Width="50" Text="{Binding CurrentPage, Mode=TwoWay}" Margin="5" VerticalAlignment="Center"/>
+            <TextBox x:Name="PageNumberTextBox" Width="50" Text="{Binding CurrentPage, Mode=TwoWay}" Margin="5" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <Button x:Name="NextPageButton" Content="下一页" Click="NextPageButton_Click" Margin="5" Style="{StaticResource MaterialDesignRaisedButton}"/>
             <Button x:Name="LastPageButton" Content="末页" Click="LastPageButton_Click" Margin="5" Style="{StaticResource MaterialDesignRaisedButton}"/>
         </StackPanel>

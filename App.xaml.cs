@@ -12,16 +12,7 @@ namespace Niuniumama
     public partial class App:Application
     {
         public static IServiceProvider ServiceProvider { get; private set; }
-
-        // protected override void OnStartup(StartupEventArgs e)
-        // {
-        //     base.OnStartup(e);
-        //     ServiceProvider = Niuniumama.DB.ServiceProvider.ConfigureServices();
-        //
-        //     var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
-        //     mainWindow.Show();
-        // }
-
+        
         private async void Application_Startup(object sender, StartupEventArgs e)
         {
             // 配置服务
