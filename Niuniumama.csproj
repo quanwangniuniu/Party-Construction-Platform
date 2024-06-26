@@ -170,6 +170,10 @@
         </ApplicationDefinition>
         <Compile Include="DB\ServiceProvider.cs" />
         <Compile Include="DB\MySqlDatabase.cs" />
+        <Compile Include="RelayCommand.cs" />
+        <Compile Include="UserControl\FooterControl.xaml.cs">
+          <DependentUpon>FooterControl.xaml</DependentUpon>
+        </Compile>
         <Compile Include="MemberNewsDetailWindow.xaml.cs">
           <DependentUpon>MemberNewsDetailWindow.xaml</DependentUpon>
         </Compile>
@@ -179,6 +183,7 @@
           <DependentUpon>SplashScreen.xaml</DependentUpon>
         </Compile>
         <Page Include="BranchDynamicsPage.xaml" />
+        <Page Include="UserControl\FooterControl.xaml" />
         <Page Include="ForwardWithDisciplinePage.xaml" />
         <Page Include="LearningAreaPage.xaml" />
         <Page Include="MainWindow.xaml">
