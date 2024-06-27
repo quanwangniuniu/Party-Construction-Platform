@@ -10,7 +10,7 @@
         TextOptions.TextRenderingMode="Auto"
         FontFamily="{DynamicResource MaterialDesignFont}"
         Icon="./Static/Icons/running_icon.png"
-        Title="党建馆" Height="900" Width="1600">
+        Title="徐州财经高等职业技术学校党建馆桌面端" Height="900" Width="1600">
     <Grid>
         <Frame Name="MainFrame" NavigationUIVisibility="Hidden"/>
         <StackPanel Orientation="Vertical" Width="250" HorizontalAlignment="Left" Margin="20,20,0,20">

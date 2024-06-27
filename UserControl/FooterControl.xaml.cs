@@ -15,17 +15,17 @@ namespace Niuniumama.UserControl
         
         private void OpenFacebook(object sender, RoutedEventArgs e)
         {
-            OpenUrl("https://www.facebook.com");
+            OpenUrl("https://www.xzcx.net.cn/");
         }
 
         private void OpenTwitter(object sender, RoutedEventArgs e)
         {
-            OpenUrl("https://www.twitter.com");
+            OpenUrl("https://lxyz.xzcx.net.cn/");
         }
 
         private void OpenLinkedIn(object sender, RoutedEventArgs e)
         {
-            OpenUrl("https://www.linkedin.com");
+            OpenUrl("https://ca.xcgzx.net.cn/cas/login");
         }
 
         private void OpenUrl(string url)

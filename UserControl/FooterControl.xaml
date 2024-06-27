@@ -18,17 +18,17 @@
 
         <!-- Company Information -->
         <StackPanel Orientation="Vertical" VerticalAlignment="Center" Grid.Row="0" Grid.Column="0" Margin="20,0">
-            <TextBlock Text="© 2024 Your Company. All rights reserved."
+            <TextBlock Text="版权所有：江苏省徐州财经高等职业技术学校　Copyright © 2020　xzcx.net.cn. All Rights Reserved"
                        Foreground="{DynamicResource MaterialDesignBody}"
                        FontWeight="Bold" FontSize="14" Margin="0,0,0,10"/>
             <StackPanel Orientation="Vertical">
-                <TextBlock Text="Developed by: Your Name"
+                <TextBlock Text="地　　址：江苏省徐州市金山东路11号"
                            Foreground="{DynamicResource MaterialDesignBody}"
                            FontSize="12" />
-                <TextBlock Text="Contact: contact@yourcompany.com"
+                <TextBlock Text="电    话：0516-82523607　82523697"
                            Foreground="{DynamicResource MaterialDesignBody}"
                            Margin="0,5,0,0" FontSize="12" />
-                <TextBlock Text="Website: www.yourcompany.com"
+                <TextBlock Text="网    站: https://www.xzcx.net.cn"
                            Foreground="{DynamicResource MaterialDesignBody}"
                            Margin="0,5,0,0" FontSize="12" />
             </StackPanel>
@@ -37,11 +37,11 @@
         <!-- Social Media Links -->
         <StackPanel Orientation="Horizontal" Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="Right" Margin="10,0">
             <Button Style="{StaticResource MaterialDesignFlatButton}" 
-                    Content="Facebook" Margin="5,0" Click="OpenFacebook" Padding="10,5"/>
+                    Content="学校官网" Margin="5,0" Click="OpenFacebook" Padding="10,5"/>
             <Button Style="{StaticResource MaterialDesignFlatButton}"
-                    Content="Twitter" Margin="5,0" Click="OpenTwitter" Padding="10,5"/>
+                    Content="党员学习基地" Margin="5,0" Click="OpenTwitter" Padding="10,5"/>
             <Button Style="{StaticResource MaterialDesignFlatButton}"
-                    Content="LinkedIn" Margin="5,0" Click="OpenLinkedIn" Padding="10,5"/>
+                    Content="智慧财校" Margin="5,0" Click="OpenLinkedIn" Padding="10,5"/>
         </StackPanel>
         
     </Grid>

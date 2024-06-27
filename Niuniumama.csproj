@@ -249,7 +249,9 @@
       <Content Include="Static\Icons\forward_Discipline.png" />
       <Content Include="Static\Icons\party_dicipline.png" />
       <Content Include="Static\Icons\members_style.png" />
-      <Resource Include="Static\Videos\test1.mp4" />
+    </ItemGroup>
+    <ItemGroup>
+      <Folder Include="Static\Videos\" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
     <Import Project="packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.5.0\build\MaterialDesignThemes.targets')" />
